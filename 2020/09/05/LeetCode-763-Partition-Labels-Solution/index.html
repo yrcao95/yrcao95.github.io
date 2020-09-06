@@ -20,18 +20,21 @@
     var CONFIG = {"hostname":"yrcao95.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="个人记录博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一个化学PhD的转行路">
-<meta property="og:url" content="yrcao95.github.io/tags/LeetCode/index.html">
+  <meta name="description" content="Problem Description: A string S of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a lis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode-763-Partition-Labels-Solution">
+<meta property="og:url" content="yrcao95.github.io/2020/09/05/LeetCode-763-Partition-Labels-Solution/index.html">
 <meta property="og:site_name" content="一个化学PhD的转行路">
-<meta property="og:description" content="个人记录博客">
+<meta property="og:description" content="Problem Description: A string S of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a lis">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-09-06T01:02:18.000Z">
+<meta property="article:modified_time" content="2020-09-06T01:41:21.713Z">
 <meta property="article:author" content="Yirui Cao">
-<meta property="article:tag" content="Yirui Cao">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="yrcao95.github.io/tags/LeetCode/">
+<link rel="canonical" href="yrcao95.github.io/2020/09/05/LeetCode-763-Partition-Labels-Solution/">
 
 
 <script id="page-configurations">
@@ -39,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Tag: LeetCode | 一个化学PhD的转行路</title>
+  <title>LeetCode-763-Partition-Labels-Solution | 一个化学PhD的转行路</title>
   
 
 
@@ -153,71 +156,164 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">LeetCode
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="yrcao95.github.io/2020/09/05/LeetCode-763-Partition-Labels-Solution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.jpeg">
+      <meta itemprop="name" content="Yirui Cao">
+      <meta itemprop="description" content="个人记录博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个化学PhD的转行路">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LeetCode-763-Partition-Labels-Solution
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-05 20:02:18 / Modified: 20:41:21" itemprop="dateCreated datePublished" datetime="2020-09-05T20:02:18-05:00">2020-09-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98%E8%A7%A3%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">刷题解析</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p><strong>Problem Description:</strong> A string <code>S</code> of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.</p>
+<p><strong>Difficulty:</strong> Medium</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p>S = “ababcbacadefegdehijhklij”<br>Output: [9, 7, 8]<br>Reasoning: In the first section which contains the first 9 characters, characters <em>a, b, c, d</em> only show up in this section. Similarly, in the second section, characters  <em>d, e, f, g</em> are present and in the last section characters <em>h, i, j, k, l</em> are detected only in this part.</p>
+</blockquote>
+<a id="more"></a>
+<p>Algorithm: Since each kind of character is only allowed to show up in one part, it is natural to consider mapping the start and ending positions of each character, <em>i.e.</em> for each type of character we have to know the indices where it first and last appears. It is guaranteed that such a region has to be covered by a certain section in our final answer. In this context, such question has been transformed into such a question: given the several intervals, how can we make some splits so that each interval only existed in one section and the number of section should be maximized? This is typical greedy problem and we can be inspired by similar problems like: <a target="_blank" rel="noopener" href="https://leetcode.com/problem/non-overlapping-intervals/description/">LeetCode 435 Non-overlappping intervals</a> or <a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/">LeetCode 452 Minimum Number of Arrows to Burst Balloons</a>. In this algorithm, we first build a data structure to record the starting and ending indices for each character (array, hashmap, whatever). Then we sort the distribution according to the starting indices. Next, we look at each interval, and meanwhile use two variables to record the current section. Specifically, when the current interval being looked at has its starting indices larger than the current right, we know it is the end of the current section and add it to the final list and update the right location. If not, we check the ending indices, and if it is larger than the right position, we simply update the right border. Here goes the code. In this algorithm,  several passes all adopt a time complexity of O(n), and sorting takes O(nlogn), so the overall complexity if O(nlogn). Although we use extra array to record the indices, but since there are at most 26, the space complexity if O(1).</p>
+<pre><code>class Solution &#123;
+    public List&lt;Integer&gt; partitionLabels(String S) &#123;
+        int[][] frag=new int[26][2];
+        for (int i=0;i&lt;26;i++) &#123;
+            frag[i][0]=Integer.MAX_VALUE;
+            frag[i][1]=Integer.MAX_VALUE;
+        &#125;
+        for (int i=0;i&lt;S.length();i++) &#123;
+            char c=S.charAt(i);
+            if (frag[c-&#39;a&#39;][0]==Integer.MAX_VALUE) &#123;
+                frag[c-&#39;a&#39;][0]=i;
+                frag[c-&#39;a&#39;][1]=i;
+            &#125;
+            else &#123;
+                frag[c-&#39;a&#39;]=i;
+            &#125;
+        &#125;
+        Arrays.sort(frag, new Comparator&lt;int[]&gt;() &#123;
+            public int compare(int[] i1, int[] i2) &#123;
+                return i1[0]-i2[0];
+            &#125;
+        &#125;);
+        int left=0;
+        int right=frag[0][1];
+        List&lt;Integer&gt; ans=new ArrayList&lt;&gt;();
+        for (int i=0;i&lt;26&amp;&amp;frag[i][0]!=Integer.MAX_VALUE;i++) &#123;
+            if (frag[i][0]&gt;right) &#123;
+                ans.add(right-left+1);
+                left=frag[i][0];
+                right=frag[i][1];
+            &#125;
+            if (frag[i][1]&gt;right) right=frag[i][1];
+        &#125;
+        ans.add(right-left+1);
+        return ans;
+    &#125;
+&#125;</code></pre>
+<p>If we take a closer look at the algorithm above, you can notice several unnecessities. For example, the sorting processes, which extends the time complexity from O(n) to O(nlogn), is actually unnecessary. The purpose of this step is simply to guarantee that we look at the string from left to right, which could be realized by iterating the string from left to right. Out of this consideration, we can avoid the recording of the starting indices but only focus on the ending indices. In terms of the update of the left and right border, the left border will be updated only when the pointer we are iterating with goes beyond the current right border. The right border will be updated in two cases. First, if the current character has a further ending index than the current right border. Second, the left border is updated. In this algorithm, the time complexity is compressed to O(n). Here goes the code.</p>
+<pre><code>class Solution &#123;
+    public List&lt;Integer&gt; partitionLabels(String S) &#123;
+        HashMap&lt;Character, Integer&gt; map=new HashMap&lt;&gt;();
+        for (int i=0;i&lt;S.length();i++) &#123;
+            map.put(S.charAt(i), i);
+        &#125;
+        List&lt;Integer&gt; ans=new ArrayList&lt;&gt;();
+        int left=0;
+        while (left&lt;S.length()) &#123;
+            int right=left;
+            for (int i=left;i&lt;=right;i++) &#123;
+                int ending=map.get(S.charAt(i));
+                if (ending&gt;right) &#123;
+                    right=ending;
+                &#125;
+            &#125;
+            ans.add(right-left+1);
+            left=right+1;
+        &#125;
+        return ans;
+    &#125;
+&#125;</code></pre>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-05T20:02:18-05:00"
-              content="2020-09-05">
-          09-05
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+              <a href="/tags/Greedy/" rel="tag"># Greedy</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/05/LeetCode-763-Partition-Labels-Solution/" itemprop="url">
-            <span itemprop="name">LeetCode-763-Partition-Labels-Solution</span>
-          </a>
-      </div>
+        
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-02T22:22:01-05:00"
-              content="2020-09-02">
-          09-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/02/LeetCode-220-Contain-Duplicates-III-solution/" itemprop="url">
-            <span itemprop="name">LeetCode-220-Contain-Duplicates-III-Solution</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/02/LeetCode-220-Contain-Duplicates-III-solution/" rel="prev" title="LeetCode-220-Contain-Duplicates-III-Solution">
+      <i class="fa fa-chevron-left"></i> LeetCode-220-Contain-Duplicates-III-Solution
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 

@@ -22,13 +22,13 @@
 
   <meta name="description" content="Problem description: Given an array of integers, find out whether there are two distinct indices i and j in the array such that the absolute difference between nums[i] and nums[j] is at most t and the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-220-Contain-Duplicates-III-solution">
+<meta property="og:title" content="LeetCode-220-Contain-Duplicates-III-Solution">
 <meta property="og:url" content="yrcao95.github.io/2020/09/02/LeetCode-220-Contain-Duplicates-III-solution/index.html">
 <meta property="og:site_name" content="一个化学PhD的转行路">
 <meta property="og:description" content="Problem description: Given an array of integers, find out whether there are two distinct indices i and j in the array such that the absolute difference between nums[i] and nums[j] is at most t and the">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-03T03:22:01.000Z">
-<meta property="article:modified_time" content="2020-09-03T03:24:19.734Z">
+<meta property="article:modified_time" content="2020-09-06T01:41:51.992Z">
 <meta property="article:author" content="Yirui Cao">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Sliding Window">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>LeetCode-220-Contain-Duplicates-III-solution | 一个化学PhD的转行路</title>
+  <title>LeetCode-220-Contain-Duplicates-III-Solution | 一个化学PhD的转行路</title>
   
 
 
@@ -176,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LeetCode-220-Contain-Duplicates-III-solution
+          LeetCode-220-Contain-Duplicates-III-Solution
         </h1>
 
         <div class="post-meta">
@@ -185,10 +185,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-09-02 22:22:01 / Modified: 22:24:19" itemprop="dateCreated datePublished" datetime="2020-09-02T22:22:01-05:00">2020-09-02</time>
+              <time title="Created: 2020-09-02 22:22:01" itemprop="dateCreated datePublished" datetime="2020-09-02T22:22:01-05:00">2020-09-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-05 20:41:51" itemprop="dateModified" datetime="2020-09-05T20:41:51-05:00">2020-09-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -200,6 +206,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -285,7 +298,10 @@
     <a href="/2020/08/31/%E5%85%88%E6%9D%A5%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E6%88%91%E8%87%AA%E5%B7%B1/" rel="prev" title="先来介绍一下我自己">
       <i class="fa fa-chevron-left"></i> 先来介绍一下我自己
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/05/LeetCode-763-Partition-Labels-Solution/" rel="next" title="LeetCode-763-Partition-Labels-Solution">
+      LeetCode-763-Partition-Labels-Solution <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -358,7 +374,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -369,7 +385,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -416,7 +432,31 @@
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script
+>
+
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
